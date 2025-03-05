@@ -24,6 +24,8 @@ class Ride {
   final int availableSeats;
   final double pricePerSeat;
 
+  final bool acceptPets; //if pet is allowed or not
+
   RideStatus status = RideStatus.created;
 
   final List<User> passengers = [];
@@ -36,6 +38,7 @@ class Ride {
     required this.driver,
     required this.availableSeats,
     required this.pricePerSeat,
+    this.acceptPets = false,
   });
 
   void addPassenger(User passenger) {
