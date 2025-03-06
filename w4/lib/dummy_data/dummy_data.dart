@@ -59,7 +59,7 @@ const List<Location> fakeLocations = [
   Location(name: 'Siem Reap', country: Country.cambodia),
   Location(name: 'Battambang', country: Country.cambodia),
   Location(name: 'Sihanoukville', country: Country.cambodia),
-  Location(name: 'Kampot', country: Country.cambodia),
+  Location(name: 'Kampot', country: Country.cambodia)
 ];
 
 // Fake Ride Preferences
@@ -155,35 +155,82 @@ List<User> fakeUsers = [
 ];
 
 // Fake  Rides
+List<Ride> fakeRides = [
+  Ride(
+      departureLocation: Location(name: 'Battambang', country: Country.cambodia), 
+      departureDate: DateTime(2025, 3, 6, 5, 30), 
+      arrivalLocation: Location(name: 'SiemReap', country: Country.cambodia),
+      arrivalDateTime: DateTime(2025, 3, 6, 8, 30).add(Duration(hours: 2)),  
+      driver: User(firstName: 'Kannika'), 
+      availableSeats: 2, 
+      pricePerSeat: 12.0),
+    Ride(
+      departureLocation: Location(name: 'Battambang', country: Country.cambodia), 
+      departureDate: DateTime(2025, 3, 6, 8), 
+      arrivalLocation: Location(name: 'SiemReap', country: Country.cambodia),
+      arrivalDateTime: DateTime(2025, 3, 6, 8).add(Duration(hours: 2)),  
+      driver: User(firstName: 'Chaylim'), 
+      availableSeats: 0,
+      pricePerSeat: 12.5
+    ),
+    Ride(
+      departureLocation: Location(name: 'Battambang', country: Country.cambodia), 
+      departureDate: DateTime(2025, 3, 6, 5), 
+      arrivalLocation: Location(name: 'SiemReap', country: Country.cambodia),
+      arrivalDateTime: DateTime(2025, 3, 6, 5).add(Duration(hours: 3)),  
+      driver: User(firstName: 'Mengtech'), 
+      availableSeats: 1,
+      pricePerSeat: 17.0
+    ),
+    Ride(
+      departureLocation: Location(name: 'Battambang', country: Country.cambodia), 
+      departureDate: DateTime(2025, 3, 6, 8), 
+      arrivalLocation: Location(name: 'SiemReap', country: Country.cambodia),
+      arrivalDateTime: DateTime(2025, 3, 6, 8).add(Duration(hours: 2)),  
+      driver: User(firstName: 'Limhao'), 
+      availableSeats: 2,
+      pricePerSeat: 13.0,
+      acceptPets: true
+    ),
+    Ride(
+      departureLocation: Location(name: 'Battambang', country: Country.cambodia), 
+      departureDate: DateTime(2025, 3, 6, 5), 
+      arrivalLocation: Location(name: 'SiemReap', country: Country.cambodia),
+      arrivalDateTime: DateTime(2025, 3, 6, 5).add(Duration(hours: 3)),  
+      driver: User(firstName: 'Sovanda'), 
+      availableSeats: 1,
+      pricePerSeat: 15.0,
 
-List<Ride> fakeRides = List.generate(50, (index) {
-  // Select random locations for departure & arrival (ensuring they are different)
-  Location departureLocation =
-      fakeLocations[random.nextInt(fakeLocations.length)];
-  Location arrivalLocation;
-  do {
-    arrivalLocation = fakeLocations[random.nextInt(fakeLocations.length)];
-  } while (departureLocation == arrivalLocation);
+    ),
+];
+// List<Ride> fakeRides = List.generate(50, (index) {
+//   // Select random locations for departure & arrival (ensuring they are different)
+//   Location departureLocation =
+//       fakeLocations[random.nextInt(fakeLocations.length)];
+//   Location arrivalLocation;
+//   do {
+//     arrivalLocation = fakeLocations[random.nextInt(fakeLocations.length)];
+//   } while (departureLocation == arrivalLocation);
 
-  // Select a random driver
-  User driver = fakeUsers[random.nextInt(fakeUsers.length)];
+//   // Select a random driver
+//   User driver = fakeUsers[random.nextInt(fakeUsers.length)];
 
-  // Random ride details
-  DateTime departureTime = DateTime.now()
-      .add(Duration(days: random.nextInt(10), hours: random.nextInt(24)));
-  DateTime arrivalTime = departureTime
-      .add(Duration(hours: random.nextInt(5) + 2)); // Rides take 2-6 hours
-  int availableSeats = random.nextInt(4) + 1; // Between 1 and 4 seats
-  double pricePerSeat = (random.nextDouble() * 20 + 5)
-      .roundToDouble(); // Price between 5€ and 25€
+//   // Random ride details
+//   DateTime departureTime = DateTime.now()
+//       .add(Duration(days: random.nextInt(10), hours: random.nextInt(24)));
+//   DateTime arrivalTime = departureTime
+//       .add(Duration(hours: random.nextInt(5) + 2)); // Rides take 2-6 hours
+//   int availableSeats = random.nextInt(4) + 1; // Between 1 and 4 seats
+//   double pricePerSeat = (random.nextDouble() * 20 + 5)
+//       .roundToDouble(); // Price between 5€ and 25€
 
-  return Ride(
-    departureLocation: departureLocation,
-    departureDate: departureTime,
-    arrivalLocation: arrivalLocation,
-    arrivalDateTime: arrivalTime,
-    driver: driver,
-    availableSeats: availableSeats,
-    pricePerSeat: pricePerSeat,
-  );
-});
+//   return Ride(
+//     departureLocation: departureLocation,
+//     departureDate: departureTime,
+//     arrivalLocation: arrivalLocation,
+//     arrivalDateTime: arrivalTime,
+//     driver: driver,
+//     availableSeats: availableSeats,
+//     pricePerSeat: pricePerSeat,
+//   );
+// });
