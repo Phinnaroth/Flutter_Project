@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:w4/model/ride/ride.dart';
 import 'package:w4/model/ride_pref/ride_pref.dart';
 import 'package:w4/repository/mock/mock_rides_repository.dart';
 import 'package:w4/service/rides_service.dart';
