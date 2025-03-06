@@ -18,9 +18,7 @@ class RidesService {
 
   /// Initialize the service with a repository
   static void initialize(RidesRepository repository) {
-    if (_instance == null) {
-      _instance = RidesService._internal(repository);
-    }
+    _instance ??= RidesService._internal(repository);
   }
 
   /// Get the singleton instance
