@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:w4/model/ride/ride.dart';
 import 'package:w4/model/ride_pref/ride_pref.dart';
 import 'package:w4/repository/mock/mock_rides_repository.dart';
 import 'package:w4/service/rides_service.dart';
@@ -70,6 +71,31 @@ test('T1', () {
     rides.forEach((ride) {
       print('Ride: ${ride.driver.firstName}, Pet allowed: ${ride.acceptPets}');
     });
+
+  });
+
+  test('Bonus', () async {
+    final preference = RidePreference(
+      departure: Location(name: 'Battambang', country: Country.cambodia),
+      arrival: Location(name: 'Siem Reap', country: Country.cambodia),
+      departureDate: DateTime.now(),
+      requestedSeats: 1,
+    );
+
+    // Use the existing ride data 
+    final rides = ridesService.getRides(preference, null);
+
+    // Sorting the rides from soonest to latest
+    rides.sort((a, b) => a.departureDate.compareTo(b.departureDate));
+
+    // Print the rides in the expected format
+    print('For your preference (Battambang -> Siem Reap, today 1 passenger) we found ${rides.length} rides:');
+    for (var ride in rides) {
+      print('- at ${ride.departureDate.hour}:${ride.departureDate.minute.toString().padLeft(2, '0')} with ${ride.driver.firstName}');
+    }
+
+    // Assertions to verify the rides are sorted correctly
+    expect(rides.length, 4);  // Assuming you expect 4 rides
 
   });
 }
