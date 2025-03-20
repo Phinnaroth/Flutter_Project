@@ -36,7 +36,7 @@ class RidesService {
 
   /// Get the current ride preference (fallback to the first fake preference)
   RidePreference getCurrentPreference() {
-    _currentPreference ??= fakeRidePrefs.first;
+    _currentPreference ??= fakeRidePrefs[0];
     return _currentPreference!;
   }
 

@@ -1,0 +1,21 @@
+Flutter full Courses
+
+Questions:
+- What is the standard size(width and height) for website?
+
+
+
+
+
+
+
+Notes:
+
+Week 0
+	- any milestones are on Jira
+	- free project free topics
+*****For research pace select one category of providing topics and submit proposal around the topic(start from week 5)
+
+
+
+
